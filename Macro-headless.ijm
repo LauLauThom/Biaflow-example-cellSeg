@@ -49,10 +49,18 @@ for(i=0; i<listImages.length; i++) {
 		wait(100);
 		
 		processImage();
+
+		// close input image
+		selectImage(image);
+		close();
+
+        // rename output to input
 		outputImage = "Count Masks of " + image; // not the in-situ option anymore
+		selectImage(outputImage);
+		rename(image);
 		
 		// Export results
-		save(outputDir + "/" + outputImage);
+		save(outputDir + "/" + image);
 		
 		// Cleanup
 		run("Close All");
